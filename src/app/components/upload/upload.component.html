@@ -1,0 +1,13 @@
+<mat-card class="input-container">
+  <div>
+    <button mat-flat-button color="primary">Select your customer statement ...
+      <input #inputElement (change)="selectFile($event)" class="fileInput"  accept=".xml,.csv,text/xml,text/csv" type="file"/>
+    </button>
+  </div>
+  <div class="fileList" *ngIf="inputElement.files && inputElement.files.length > 0">{{inputElement.files[0].name}}</div>
+  <div>
+    <button  mat-button color="warn" [disabled]="!fileToUpload" (click)="upload()">
+      Upload
+    </button>
+  </div>
+</mat-card>
